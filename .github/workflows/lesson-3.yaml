@@ -5,7 +5,20 @@ on:
     branches:
       - lesson-3
 jobs:
+  function_test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+      - name: Install dependencies
+        run: npm install
+      - name: Run functional tests
+        run: npm run test-coverage
   deploy:
+    needs: [function_test]
     runs-on: ubuntu-latest
     defaults:
       run:

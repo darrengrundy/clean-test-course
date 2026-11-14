@@ -23,3 +23,7 @@ env.bak/
 venv.bak/ 
 
 test*.sh
+
+# Test coverage output
+.coverage
+.coverage.*
